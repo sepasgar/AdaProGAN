@@ -48,12 +48,12 @@ def load_progan_generator(model_path):
 
 def generate_single_images(gen, target_img_size, num_images=100):
     """
-    Generate individual images using the exact same method as your training code
+    Generate individual images using the exact same method as training code
     """
     step = int(log2(target_img_size / 4))
     alpha = 1.0  # Full resolution
     
-    # Temporarily set generator to eval mode (following your pattern)
+    # Temporarily set generator to eval mode 
     gen.eval()
     
     print(f"Generating {num_images} individual images at {target_img_size}x{target_img_size}...")
@@ -66,7 +66,7 @@ def generate_single_images(gen, target_img_size, num_images=100):
             # Generate image
             fake_image = gen(noise, alpha, step)
             
-            # Denormalize the images from [-1, 1] to [0, 1] (exact same as your code)
+            # Denormalize the images from [-1, 1] to [0, 1] 
             fake_image = (fake_image * 0.5) + 0.5
             
             # Convert tensor to numpy array (exact same as your code)
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     print("Loading ProGAN generator...")
     generator = load_progan_generator(gen_path)
     
-    # Define target image size (must match your trained model capabilities)
+    # Define target image size 
     TARGET_SIZE = 256  # Change this to your desired resolution
     
     print("="*64)
@@ -111,4 +111,5 @@ if __name__ == "__main__":
     end_time = time.time()
     print(f'finished in {end_time - start_time} seconds')
     
+
 
