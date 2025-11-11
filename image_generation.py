@@ -69,11 +69,11 @@ def generate_single_images(gen, target_img_size, num_images=100):
             # Denormalize the images from [-1, 1] to [0, 1] 
             fake_image = (fake_image * 0.5) + 0.5
             
-            # Convert tensor to numpy array (exact same as your code)
+            # Convert tensor to numpy array 
             img = fake_image[0].permute(1, 2, 0).cpu().numpy()
             img = (img * 255).astype('uint8')
             
-            # Convert from RGB to BGR for OpenCV (exact same as your code)
+            # Convert from RGB to BGR for OpenCV 
             img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
             
             # Save individual image
@@ -111,5 +111,6 @@ if __name__ == "__main__":
     end_time = time.time()
     print(f'finished in {end_time - start_time} seconds')
     
+
 
 
